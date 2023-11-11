@@ -19,8 +19,6 @@ export const ActiveLink = ({
 }) => {
 	const pathname = usePathname();
 	const isActive = exact ? pathname === href : pathname.startsWith(href);
-	console.log(isActive);
-	console.log(isActive ? activeClassName : "");
 
 	return (
 		<Link
