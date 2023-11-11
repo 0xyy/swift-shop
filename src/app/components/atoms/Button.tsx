@@ -30,6 +30,7 @@ export const Button: FC<ButtonProps> = ({
 	} ${uppercase ? "uppercase" : ""} ${className}`;
 	const buttonStyles = {
 		primary: `px-10 py-4 text-gray-50 bg-gray-700 text-${size} ${base}`,
+		secondary: `${base}`,
 	};
 
 	return (
