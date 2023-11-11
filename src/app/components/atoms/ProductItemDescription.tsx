@@ -1,17 +1,17 @@
 import { formatMoney } from "@/app/utils";
-import { graphql } from "@/gql";
-import { FragmentType, getFragmentData } from "@/gql/fragment-masking";
+// import { graphql } from "@/gql";
+// import { FragmentType, getFragmentData } from "@/gql/fragment-masking";
 import type { ProductListItemFragment } from "@/gql/graphql";
 
-const ProductItemDescription_Product = graphql(/* GraphQL */ `
-	fragment ProductItemDescription_Product on Product {
-		name
-		categories(first: 1) {
-			name
-		}
-		price
-	}
-`);
+// const ProductItemDescription_Product = graphql(/* GraphQL */ `
+// 	fragment ProductItemDescription_Product on Product {
+// 		name
+// 		categories(first: 1) {
+// 			name
+// 		}
+// 		price
+// 	}
+// `);
 
 type ProductItemDescriptionProps = {
 	// product: FragmentType<typeof ProductItemDescription_Product>;
