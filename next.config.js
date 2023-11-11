@@ -1,4 +1,23 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+	pageExtensions: ["ts", "tsx", "mdx"],
+	experimental: {
+		typedRoutes: true,
+		mdxRs: true,
+	},
+	images: {
+		domains: ["media.graphassets.com"],
+	},
+	redirects: async () => {
+		return [
+			{
+				source: "/products/t-shirts",
+				destination: "/products/t-shirts/1",
+				permanent: false,
+			},
+		];
+	},
+};
 
-module.exports = nextConfig;
+const withMDX = require("@next/mdx")();
+module.exports = withMDX(nextConfig);
