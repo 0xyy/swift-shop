@@ -1,12 +1,17 @@
+import Link from "next/link";
 import { ProductItemDescription } from "../atoms/ProductItemDescription";
 import { ProductItemImage } from "../atoms/ProductItemImage";
-import { type Product } from "../types";
+import { ProductListItemFragment } from "@/gql/graphql";
 
-export const ProductItem = ({ product }: { product: Product }) => {
+export const ProductItem = ({ product }: { product: ProductListItemFragment }) => {
 	return (
-		<li className="p flex h-60 w-60 flex-col justify-between rounded-lg border-2 bg-slate-100 px-3 py-4">
-			<ProductItemImage {...product.coverImage} />
-			<ProductItemDescription name={product.name} price={product.price} />
+		<li className="m-3">
+			<Link href={`/product/${product.id}`}>
+				<div className="flex flex-col rounded-lg border-2 bg-slate-100">
+					{product.images[0] && <ProductItemImage src={product.images[0].url} alt="" />}
+					<ProductItemDescription product={product} />
+				</div>
+			</Link>
 		</li>
 	);
 };

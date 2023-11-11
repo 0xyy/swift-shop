@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.bg-full-w {
+		clip-path: inset(0 -100vmax);
+	}
+
+	.text-gradient {
+		@apply bg-gradient-to-r from-pink-500 to-violet-700 bg-clip-text text-transparent;
+	}
+
+	.gradient-icon {
+		background: linear-gradient(to right, #ff6bbd, #7e57c2);
+		-webkit-background-clip: text;
+		color: transparent;
+	}
+}
+
 :root {
 	--foreground-rgb: 0, 0, 0;
 	--background-start-rgb: 214, 219, 220;
@@ -17,6 +33,7 @@
 }
 
 body {
+	font-family: var(--font-poppins), sans-serif;
 	/* color: rgb(var(--foreground-rgb));
 	background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
 		rgb(var(--background-start-rgb)); */
