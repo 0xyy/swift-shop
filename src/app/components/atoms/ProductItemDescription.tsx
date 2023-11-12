@@ -2,6 +2,7 @@ import { formatMoney } from "@/app/utils";
 // import { graphql } from "@/gql";
 // import { FragmentType, getFragmentData } from "@/gql/fragment-masking";
 import type { ProductListItemFragment } from "@/gql/graphql";
+import { ProductItemCategory } from "./ProductItemCategory";
 
 // const ProductItemDescription_Product = graphql(/* GraphQL */ `
 // 	fragment ProductItemDescription_Product on Product {
@@ -14,11 +15,11 @@ import type { ProductListItemFragment } from "@/gql/graphql";
 // `);
 
 type ProductItemDescriptionProps = {
-	// product: FragmentType<typeof ProductItemDescription_Product>;
+	// product: FragmentType<typeof ProductItemDescription_Prodeuct>;
 	product: ProductListItemFragment;
 };
 
-export const ProductItemDescription = (props: ProductItemDescriptionProps) => {
+export const ProductItemDescription = async (props: ProductItemDescriptionProps) => {
 	// const { name, categories, price } = getFragmentData(
 	// 	ProductItemDescription_Product,
 	// 	props.product,
@@ -27,10 +28,10 @@ export const ProductItemDescription = (props: ProductItemDescriptionProps) => {
 	const { categories, name, price } = props.product;
 
 	return (
-		<div className="flex flex-col justify-center p-4 align-middle">
-			<h3 className="text-md font-bold">{name}</h3>
-			{categories?.[0] && <span>{categories[0].name}</span>}
-			<p className="text-sm font-semibold">{`${formatMoney(price)}`}</p>
+		<div className="flex w-1/2 flex-col justify-center space-y-8 pl-14 md:pl-1 lg:pl-4">
+			{categories?.[0] && <ProductItemCategory category={categories[0].name} />}
+			<h3 className="text-xl font-bold md:text-2xl">{name}</h3>
+			<p className="text-md font-semibold md:text-lg">{`${formatMoney(price / 100)}`}</p>
 		</div>
 	);
 };

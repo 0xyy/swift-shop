@@ -4,6 +4,8 @@ import { getProductById } from "@/api/products";
 import { ProductItemDescription } from "@/app/components/atoms/ProductItemDescription";
 import { ProductItemImage } from "@/app/components/atoms/ProductItemImage";
 import { SuggestedProductsList } from "@/app/components/organisms/SuggestedProducts";
+import { ProductItemDetails } from "@/app/components/atoms/ProductItemDetails";
+import { ProductItemCategory } from "@/app/components/atoms/ProductItemCategory";
 
 export const generateMetadata = async ({
 	params,
@@ -12,25 +14,33 @@ export const generateMetadata = async ({
 }): Promise<Metadata> => {
 	const product = await getProductById(params.productId);
 	return {
-		title: `Product ${product.name}`,
+		title: `${product.name} - SwiftShop`,
 		description: product.description,
 	};
 };
 
 export default async function SingleProductPage({ params }: { params: { productId: string } }) {
 	const product = await getProductById(params.productId);
+
 	return (
-		<>
-			<article className="max-w-xs">
-				<h1>{product.name}</h1>
-				{product.images[0] && <ProductItemImage src={product.images[0].url} alt={product.name} />}
-				<ProductItemDescription product={product} />
+		<section className="flex flex-col space-y-10 text-gray-700">
+			{product.categories?.[0] && <ProductItemCategory category={product.categories[0].name} />}
+			<article className="flex h-[500px] flex-col space-y-3 rounded-xl border-2 border-gray-100 p-2 md:flex-row md:p-4">
+				<div className="h-full w-full lg:w-1/2">
+					{product.images[0] && (
+						<ProductItemImage src={product.images[0].url} alt={product.name} fill />
+					)}
+				</div>
+				<ProductItemDetails product={product} />
 			</article>
-			<aside>
-				<Suspense>
-					<SuggestedProductsList />
-				</Suspense>
+			<aside className="flex flex-col space-y-5">
+				<h2 className="text-2xl font-semibold md:text-4xl">Suggested products</h2>
+				<div>
+					<Suspense fallback={<p>loading</p>}>
+						<SuggestedProductsList />
+					</Suspense>
+				</div>
 			</aside>
-		</>
+		</section>
 	);
 }
