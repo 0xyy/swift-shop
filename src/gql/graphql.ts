@@ -10762,7 +10762,10 @@ export type _SystemDateTimeFieldVariation =
   | 'combined'
   | 'localization';
 
-export type ProductItemDescription_ProductFragment = { name: string, price: number, categories: Array<{ name: string }> };
+export type CategoriesGetListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CategoriesGetListQuery = { categories: Array<{ id: string, name: string }> };
 
 export type ProductGetByIdQueryVariables = Exact<{
   id: Scalars['ID']['input'];
@@ -10799,15 +10802,6 @@ export class TypedDocumentString<TResult, TVariables>
     return this.value;
   }
 }
-export const ProductItemDescription_ProductFragmentDoc = new TypedDocumentString(`
-    fragment ProductItemDescription_Product on Product {
-  name
-  categories(first: 1) {
-    name
-  }
-  price
-}
-    `, {"fragmentName":"ProductItemDescription_Product"}) as unknown as TypedDocumentString<ProductItemDescription_ProductFragment, unknown>;
 export const ProductListItemFragmentDoc = new TypedDocumentString(`
     fragment ProductListItem on Product {
   id
@@ -10822,6 +10816,14 @@ export const ProductListItemFragmentDoc = new TypedDocumentString(`
   price
 }
     `, {"fragmentName":"ProductListItem"}) as unknown as TypedDocumentString<ProductListItemFragment, unknown>;
+export const CategoriesGetListDocument = new TypedDocumentString(`
+    query CategoriesGetList {
+  categories {
+    id
+    name
+  }
+}
+    `) as unknown as TypedDocumentString<CategoriesGetListQuery, CategoriesGetListQueryVariables>;
 export const ProductGetByIdDocument = new TypedDocumentString(`
     query ProductGetById($id: ID!) {
   product(where: {id: $id}) {
