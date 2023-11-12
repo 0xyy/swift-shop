@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import { type Metadata } from "next";
 import { getProductById } from "@/api/products";
-import { ProductItemDescription } from "@/app/components/atoms/ProductItemDescription";
 import { ProductItemImage } from "@/app/components/atoms/ProductItemImage";
 import { SuggestedProductsList } from "@/app/components/organisms/SuggestedProducts";
 import { ProductItemDetails } from "@/app/components/atoms/ProductItemDetails";
