@@ -1,7 +1,7 @@
 
 # 🚀 SwiftShop - Example E-commerve shop
 
-# demo - [https://www.anycar.networkmanager.pl/](https://swift-shop-three.vercel.app/)
+# demo - https://swift-shop-three.vercel.app/
 
 ## This project is written to gain experience in frontend technologies.
 
