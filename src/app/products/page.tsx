@@ -5,7 +5,7 @@ export default async function ProductsPage() {
 	const products = await getProductsList();
 
 	return (
-		<section className="">
+		<section>
 			<ProductItemList products={products} />
 		</section>
 	);

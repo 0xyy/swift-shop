@@ -1,6 +1,7 @@
 import { MoveRight } from "lucide-react";
 import NextImage from "next/image";
 import { Button } from "../atoms/Button";
+import Link from "next/link";
 
 export const Header = () => {
 	return (
@@ -9,9 +10,11 @@ export const Header = () => {
 				<h1 className="text-gradient text-center text-6xl font-bold uppercase tracking-wider sm:text-left sm:text-6xl md:text-7xl lg:text-left lg:text-8xl">
 					Perfect time to shop
 				</h1>
-				<Button type="button" size="lg" style="primary" className="lg:w-fit" fullWidth>
-					Shop Collection <MoveRight size={20} />
-				</Button>
+				<Link href="/products">
+					<Button type="button" size="lg" style="primary" className="lg:w-fit" fullWidth>
+						Shop Collection <MoveRight size={20} />
+					</Button>
+				</Link>
 
 				<div className="flex w-min whitespace-nowrap py-2">
 					<div className="flex-grow border-r-2 border-gray-200 pr-10 ">

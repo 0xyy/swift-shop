@@ -1,5 +1,5 @@
-import { CornerDownLeft, DollarSign, MoveRight, Target, ThumbsUp } from "lucide-react";
-import { Button } from "../atoms/Button";
+import { CornerDownLeft, DollarSign, Target, ThumbsUp } from "lucide-react";
+import { Newsletter } from "./Newsletter";
 
 export const Features = () => {
 	return (
@@ -42,21 +42,7 @@ export const Features = () => {
 					</div>
 				</section>
 			</div>
-			<div className="flex flex-col items-center justify-center space-y-10">
-				<h3 className="text-center text-2xl font-medium text-gray-700 md:text-3xl xl:text-4xl">
-					Stay in the Loop and Subscribe to Our Newsletter!
-				</h3>
-				<div className="flex w-11/12 space-x-3 border-b-2 border-gray-700 py-3 md:w-2/3 lg:w-1/2">
-					<input
-						type="text"
-						placeholder="Enter your e-mail"
-						className="flex-grow rounded-lg bg-transparent px-4 text-sm text-gray-700 placeholder-gray-400 outline-none focus:ring-2 focus:ring-pink-500"
-					/>
-					<Button type="button" size="sm" style="primary" className="px-4 md:px-10">
-						Subscribe Now <MoveRight size={20} />
-					</Button>
-				</div>
-			</div>
+			<Newsletter />
 		</section>
 	);
 };

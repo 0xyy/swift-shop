@@ -25,11 +25,11 @@ export const Button: FC<ButtonProps> = ({
 	uppercase,
 	className,
 }) => {
-	const base = `flex items-center gap-x-2 justify-center rounded-lg ${
+	const base = `flex items-center gap-x-2 justify-center rounded-lg transistion-colors ease-in-out duration-150 ${
 		fullWidth ? "w-full" : "w-fit"
 	} ${uppercase ? "uppercase" : ""} ${className}`;
 	const buttonStyles = {
-		primary: `px-10 py-4 text-gray-50 bg-gray-700 text-${size} ${base}`,
+		primary: `px-10 py-4 text-gray-50 bg-gray-700 text-${size} ${base} hover:bg-gray-800 `,
 		secondary: `${base}`,
 	};
 

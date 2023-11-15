@@ -5,6 +5,9 @@ import { ProductItemImage } from "@/app/components/atoms/ProductItemImage";
 import { SuggestedProductsList } from "@/app/components/organisms/SuggestedProducts";
 import { ProductItemDetails } from "@/app/components/atoms/ProductItemDetails";
 import { ProductItemCategory } from "@/app/components/atoms/ProductItemCategory";
+import { MoveLeft } from "lucide-react";
+import Link from "next/link";
+import { MoveLink } from "@/app/components/atoms/MoveLink";
 
 export const generateMetadata = async ({
 	params,
@@ -23,6 +26,12 @@ export default async function SingleProductPage({ params }: { params: { productI
 
 	return (
 		<section className="flex flex-col space-y-10 text-gray-700">
+			{/* <Link href="/products">
+				<div className="flex">
+					<MoveLeft /> <span>Go back to all products</span>
+				</div>
+			</Link> */}
+			<MoveLink href="/products" size="sm" text="Go back" iconOnRight={false} />
 			{product.categories?.[0] && <ProductItemCategory category={product.categories[0].name} />}
 			<article className="flex h-[500px] flex-col space-y-3 rounded-xl border-2 border-gray-100 p-2 md:flex-row md:p-4">
 				<div className="h-full w-full lg:w-1/2">
@@ -32,8 +41,10 @@ export default async function SingleProductPage({ params }: { params: { productI
 				</div>
 				<ProductItemDetails product={product} />
 			</article>
-			<aside className="flex flex-col space-y-5">
-				<h2 className="text-2xl font-semibold md:text-4xl">Suggested products</h2>
+			<aside className="flex flex-col space-y-10">
+				<h2 className="text-center text-2xl font-semibold sm:text-left md:text-4xl">
+					Suggested products
+				</h2>
 				<div>
 					<Suspense fallback={<p>loading</p>}>
 						<SuggestedProductsList />
