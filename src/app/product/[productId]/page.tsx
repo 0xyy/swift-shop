@@ -5,8 +5,6 @@ import { ProductItemImage } from "@/app/components/atoms/ProductItemImage";
 import { SuggestedProductsList } from "@/app/components/organisms/SuggestedProducts";
 import { ProductItemDetails } from "@/app/components/atoms/ProductItemDetails";
 import { ProductItemCategory } from "@/app/components/atoms/ProductItemCategory";
-import { MoveLeft } from "lucide-react";
-import Link from "next/link";
 import { MoveLink } from "@/app/components/atoms/MoveLink";
 
 export const generateMetadata = async ({
