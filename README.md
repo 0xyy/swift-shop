@@ -1,7 +1,7 @@
 
-# 🚀 SwiftShop - Example E-commerve shop
+# 🚀 SwiftShop - Example E-commerce shop
 
-# demo - https://swift-shop-three.vercel.app/
+# Demo preview - https://swift-shop-three.vercel.app/
 
 ## This project is written to gain experience in frontend technologies.
 
@@ -9,7 +9,7 @@
 
 ## 🛠 Tech Stack
 
-**Client:** Next.js, TypeScript, Tailwind CSS, GraphQL
+**Client:** Next.js 13, TypeScript, Tailwind CSS, GraphQL, 
 
 ## Authors
 
