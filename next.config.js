@@ -8,16 +8,17 @@ const nextConfig = {
 	images: {
 		domains: ["media.graphassets.com"],
 	},
-	redirects: async () => {
-		return [
-			{
-				source: "/products/t-shirts",
-				destination: "/products/t-shirts/1",
-				permanent: false,
-			},
-		];
-	},
 };
 
 const withMDX = require("@next/mdx")();
 module.exports = withMDX(nextConfig);
+
+// redirects: async () => {
+// 	return [
+// 		{
+// 			source: "/products/t-shirts",
+// 			destination: "/products/t-shirts/1",
+// 			permanent: false,
+// 		},
+// 	];
+// },

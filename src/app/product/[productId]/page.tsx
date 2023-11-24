@@ -6,6 +6,7 @@ import { SuggestedProductsList } from "@/app/components/organisms/SuggestedProdu
 import { ProductItemDetails } from "@/app/components/atoms/ProductItemDetails";
 import { ProductItemCategory } from "@/app/components/atoms/ProductItemCategory";
 import { MoveLink } from "@/app/components/atoms/MoveLink";
+import { Loader } from "@/app/components/atoms/Loader";
 
 export const generateMetadata = async ({
 	params,
@@ -44,7 +45,7 @@ export default async function SingleProductPage({ params }: { params: { productI
 					Suggested products
 				</h2>
 				<div>
-					<Suspense fallback={<p>loading</p>}>
+					<Suspense fallback={<Loader />}>
 						<SuggestedProductsList />
 					</Suspense>
 				</div>

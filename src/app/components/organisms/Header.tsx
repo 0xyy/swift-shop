@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export const Header = () => {
 	return (
-		<header className="flex flex-col gap-y-10 sm:flex-row sm:gap-x-4">
-			<section className="flex flex-col gap-y-8 sm:w-3/5 sm:justify-between lg:w-1/2">
+		<header className="flex flex-col gap-y-10 sm:gap-x-4 md:flex-row">
+			<section className="flex flex-col gap-y-8 sm:justify-between md:w-3/5 lg:w-1/2">
 				<h1 className="text-gradient text-center text-6xl font-bold uppercase tracking-wider sm:text-left sm:text-6xl md:text-7xl lg:text-left lg:text-8xl">
 					Perfect time to shop
 				</h1>
@@ -67,8 +67,8 @@ export const Header = () => {
 				</aside>
 			</section>
 
-			<aside className="flex flex-col items-center gap-y-6 sm:w-2/5 lg:w-1/2 lg:justify-between">
-				<div className="relative h-[450px] w-full lg:h-[600px] ">
+			<aside className="flex flex-col items-center gap-y-6 md:w-2/5 lg:w-1/2 lg:justify-between">
+				<div className="relative h-[600px] w-full md:h-full ">
 					<NextImage
 						src="/header-couple.jpg"
 						fill
@@ -76,10 +76,6 @@ export const Header = () => {
 						alt="couple"
 					/>
 				</div>
-
-				<h3 className="mt-4 flex items-center justify-center space-x-5 text-4xl text-gray-700 md:justify-start lg:text-6xl">
-					<span className="uppercase">Trending</span> <MoveRight size={40} />
-				</h3>
 			</aside>
 		</header>
 	);

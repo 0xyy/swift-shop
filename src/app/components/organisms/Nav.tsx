@@ -1,10 +1,11 @@
 "use client";
 import { useState } from "react";
 import { ActiveLink } from "../atoms/ActiveLink";
-import { Logo } from "./Logo";
+import { Logo } from "../atoms/Logo";
 import { Menu } from "lucide-react";
 import { X } from "lucide-react";
 import { ShoppingCartIcon } from "../atoms/ShoppingCartIcon";
+import clsx from "clsx";
 
 const navItems = [
 	{
@@ -15,26 +16,29 @@ const navItems = [
 	{
 		href: "/products",
 		label: "Shop",
-		isExact: false,
+		isExact: true,
+	},
+	{
+		href: "/products/t-shirts",
+		label: "T-shirts",
+		isExact: true,
+	},
+	{
+		href: "/products/hoodies",
+		label: "Hoodies",
+		isExact: true,
+	},
+	{
+		href: "/products/accessories",
+		label: "Accessories",
+		isExact: true,
 	},
 	{
 		href: "/blog",
 		label: "Blog",
 		isExact: false,
 	},
-	{
-		href: "/products/t-shirts",
-		label: "T-shirts",
-		isExact: false,
-	},
-	{
-		href: "/products/hoodies",
-		label: "Hoodies",
-		isExact: false,
-	},
 ];
-
-// className="mx-auto flex max-w-lg justify-evenly py-4"
 
 export const Nav = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -62,7 +66,13 @@ export const Nav = () => {
 				</div>
 
 				<div
-					className={`${menuOpen ? "block" : "hidden"} w-full lg:flex lg:w-auto lg:items-center`}
+					className={clsx(
+						`w-full transition-all md:overflow-visible lg:flex lg:w-auto lg:items-center`,
+						{
+							"h-[260px]": menuOpen,
+							"h-0 overflow-hidden": !menuOpen,
+						},
+					)}
 					id="navbar-hamburger"
 				>
 					<ul className="mt-4 flex flex-col rounded-lg bg-gray-100 font-medium lg:mt-0 lg:flex-row lg:space-x-4 lg:bg-transparent">

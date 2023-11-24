@@ -7,7 +7,7 @@ export const Footer = () => {
 				<p className="self-start text-center">Copyright &copy; 2023</p>
 				<div className="flex justify-between space-x-5">
 					<p className="transition-colors duration-75 hover:text-gray-800">
-						<Link href="/privacy-policy">Pricacy Policy</Link>
+						<Link href="/privacy-policy">Privacy Policy</Link>
 					</p>
 					<p className="transition-colors duration-75 hover:text-gray-800">
 						<Link href="/terms-conditions">Terms and conditions</Link>

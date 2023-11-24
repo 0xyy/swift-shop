@@ -1,0 +1,7 @@
+query ProductsGetQuantityByCategorySlug($where: ProductWhereInput) {
+	productsConnection(where: $where) {
+		aggregate {
+			count
+		}
+	}
+}

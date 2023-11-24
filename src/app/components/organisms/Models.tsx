@@ -1,17 +1,11 @@
-import { Instagram } from "lucide-react";
 import NextImage from "next/image";
+import { Subtitle } from "../atoms/Subtitle";
+import { Instagram } from "lucide-react";
 
 export const Models = () => {
 	return (
 		<div className="flex flex-col space-y-10 py-7">
-			<header className="flex w-full items-center space-x-1">
-				<p className="text-xl font-semibold uppercase tracking-wide text-gray-700">Instagram</p>
-				<div className="h-[2px] flex-grow bg-gray-200"></div>
-				<div className="text-pink-400">
-					<Instagram size={23} />
-				</div>
-				<span className="text-gradient text-lg">@swift.shop</span>
-			</header>
+			<Subtitle title="Instagram" text="@swift.shop" icon={<Instagram size={23} />} />
 			<div className="grid w-full grid-cols-1 gap-x-4 gap-y-8 px-12 md:grid-cols-2 md:gap-x-8 md:px-0 xl:grid-cols-4">
 				<div className="relative h-96">
 					<NextImage

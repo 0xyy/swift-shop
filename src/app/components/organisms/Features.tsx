@@ -1,46 +1,36 @@
-import { CornerDownLeft, DollarSign, Target, ThumbsUp } from "lucide-react";
-import { Newsletter } from "./Newsletter";
+import { Newsletter } from "../molecules/Newsletter";
+import { FeatureItem, type FeatureItemProps } from "../molecules/FeatureItem";
+
+const features: FeatureItemProps[] = [
+	{
+		title: "Quick Payment",
+		description: "Online quick payment",
+		type: "payment",
+	},
+	{
+		title: "Easy Return",
+		description: "Return within 24 hours",
+		type: "return",
+	},
+	{
+		title: "Satisfy Guarantee",
+		description: "100% satisfied guarantee",
+		type: "satisfy",
+	},
+	{
+		title: "Large Selection",
+		description: "Top quality products",
+		type: "quality",
+	},
+];
 
 export const Features = () => {
 	return (
 		<section className="bg-full-w space-y-36 bg-stone-100 py-24 shadow-[0_0_0_100vmax] shadow-stone-100 ">
 			<div className="grid grid-cols-1 gap-y-7 sm:grid-cols-2 xl:flex xl:justify-between">
-				<section className="flex items-center justify-center gap-x-3 p-2">
-					<div className="text-pink-500">
-						<DollarSign size={30} />
-					</div>
-					<div>
-						<p className="text-gradient text-xl font-semibold">Quick Payment</p>
-						<span className="text-sm font-light text-gray-700">Online quick payment</span>
-					</div>
-				</section>
-				<section className="flex items-center justify-center gap-x-3 p-2">
-					<div className="text-pink-500">
-						<CornerDownLeft size={30} />
-					</div>
-					<div>
-						<p className="text-gradient text-xl font-semibold">Easy Return</p>
-						<span className="text-sm font-light text-gray-700">Return within 24 hours</span>
-					</div>
-				</section>
-				<section className="flex items-center justify-center gap-x-3 p-2">
-					<div className="text-pink-400">
-						<ThumbsUp size={30} />
-					</div>
-					<div>
-						<p className="text-gradient text-xl font-semibold">Satisfy Guarantee</p>
-						<span className="text-sm font-light text-gray-700">100% satisfied guarantee</span>
-					</div>
-				</section>
-				<section className="flex items-center justify-center gap-x-3 p-2 xl:justify-end">
-					<div className="text-pink-400">
-						<Target size={30} />
-					</div>
-					<div>
-						<p className="text-gradient text-xl font-semibold">Large Selection</p>
-						<span className="text-sm font-light text-gray-700">Top quality products</span>
-					</div>
-				</section>
+				{features.map((feature) => (
+					<FeatureItem key={feature.title} {...feature} />
+				))}
 			</div>
 			<Newsletter />
 		</section>
