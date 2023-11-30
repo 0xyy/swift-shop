@@ -9,7 +9,7 @@
 
 ## 🛠 Tech Stack
 
-**Client:** Next.js 13, TypeScript, Tailwind CSS, GraphQL, 
+**Client:** Next.js 14, TypeScript, Tailwind CSS, GraphQL, Codegen
 
 ## Authors
 
