@@ -6,6 +6,7 @@ import { Menu } from "lucide-react";
 import { X } from "lucide-react";
 import { ShoppingCartIcon } from "../atoms/ShoppingCartIcon";
 import clsx from "clsx";
+import Link from "next/link";
 
 const navItems = [
 	{
@@ -67,7 +68,7 @@ export const Nav = () => {
 
 				<div
 					className={clsx(
-						`w-full transition-all md:overflow-visible lg:flex lg:w-auto lg:items-center`,
+						`w-full transition-all lg:flex lg:w-auto lg:items-center lg:overflow-visible`,
 						{
 							"h-[260px]": menuOpen,
 							"h-0 overflow-hidden": !menuOpen,

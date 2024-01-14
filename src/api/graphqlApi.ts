@@ -3,6 +3,7 @@ import { TypedDocumentString } from "@/gql/graphql";
 export const executeGraphql = async <TResult, TVariables>(
 	query: TypedDocumentString<TResult, TVariables>,
 	variables: TVariables,
+	cache?: RequestCache,
 ): Promise<TResult> => {
 	if (!process.env.GRAPHQL_URL) throw new TypeError("GRAPHQL_URL is not defined");
 
@@ -12,8 +13,10 @@ export const executeGraphql = async <TResult, TVariables>(
 			query,
 			variables,
 		}),
+		cache: cache,
 		headers: {
 			"Content-Type": "application/json",
+			Authorization: `Bearer ${process.env.HYGRAPH_MUTATION_TOKEN}`,
 		},
 	});
 
@@ -24,6 +27,7 @@ export const executeGraphql = async <TResult, TVariables>(
 	const graphqlResponse = (await res.json()) as GraphQLResponse<TResult>;
 
 	if (graphqlResponse.errors) {
+		// console.log(graphqlResponse);
 		throw TypeError(`GrahpQL Errror`, {
 			cause: graphqlResponse.errors,
 		});

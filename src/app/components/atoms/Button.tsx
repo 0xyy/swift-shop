@@ -1,6 +1,8 @@
+import clsx from "clsx";
+import Link from "next/link";
 import { FC, ReactNode } from "react";
 
-type ButtonSize = "sm" | "md" | "lg";
+type ButtonSize = "small" | "medium" | "large";
 
 type ButtonStyle = "primary" | "secondary";
 
@@ -11,30 +13,54 @@ export type ButtonProps = {
 	style: ButtonStyle;
 	type: ButtonType;
 	children: ReactNode;
-	fullWidth?: boolean;
-	uppercase?: boolean;
+	href?: string;
 	className?: string;
+	isFullWidth?: boolean;
+	uppercase?: boolean;
+	disabled?: boolean;
 };
 
 export const Button: FC<ButtonProps> = ({
 	size,
 	style,
 	type,
-	fullWidth,
 	children,
-	uppercase,
+	href,
 	className,
+	isFullWidth = false,
+	uppercase = false,
+	disabled = false,
 }) => {
-	const base = `flex items-center gap-x-2 justify-center rounded-lg transistion-colors ease-in-out duration-150 ${
-		fullWidth ? "w-full" : "w-fit"
-	} ${uppercase ? "uppercase" : ""} ${className}`;
+	const base = clsx(
+		"flex items-center gap-x-2 justify-center rounded-lg transistion-colors ease-in-out duration-150 shadow-md disabled:cursor-wait",
+		className,
+		{
+			"w-full": isFullWidth,
+			"w-fit": !isFullWidth,
+			uppercase: uppercase,
+			"text-sm px-6 py-3": size === "small",
+			"text-md px-8 py-4": size === "medium",
+			"text-lg px-10 py-4": size === "large",
+		},
+	);
+
 	const buttonStyles = {
-		primary: `px-10 py-4 text-gray-50 bg-gray-700 text-${size} ${base} hover:bg-gray-800 `,
-		secondary: `${base}`,
+		primary: clsx("text-gray-50 bg-gray-700 hover:bg-gray-800 disabled:bg-gray-300", base),
+		secondary: clsx("text-gray-50 bg-pink-400 hover:bg-pink-500 disabled:bg-pink-200", base),
 	};
 
+	if (href) {
+		return (
+			<Link href={{ pathname: href }}>
+				<button type={type} disabled={disabled} className={`${buttonStyles[style]}`}>
+					{children}
+				</button>
+			</Link>
+		);
+	}
+
 	return (
-		<button type={type} className={`${buttonStyles[style]}`}>
+		<button type={type} disabled={disabled} className={`${buttonStyles[style]}`}>
 			{children}
 		</button>
 	);

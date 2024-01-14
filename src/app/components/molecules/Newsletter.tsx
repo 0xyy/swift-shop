@@ -13,13 +13,7 @@ export const Newsletter = () => {
 					placeholder="Enter your e-mail"
 					className="h-12 flex-grow rounded-lg bg-transparent px-4 text-sm text-gray-700 placeholder-gray-400 outline-none focus:ring-2 focus:ring-pink-500 sm:h-auto"
 				/>
-				<Button
-					type="button"
-					size="sm"
-					style="primary"
-					className="px-4 sm:w-fit md:px-10"
-					fullWidth
-				>
+				<Button type="button" size="small" style="primary" className="sm:w-fit" isFullWidth>
 					Subscribe Now <MoveRight size={20} />
 				</Button>
 			</div>
