@@ -2,7 +2,7 @@
 
 # 🚀 SwiftShop 
 
-Example E-commerce shop with various features.
+Example clean and beautiful E-commerce shop with various features.
 
 This project is written to gain experience in frontend technologies.
 
@@ -18,7 +18,7 @@ https://swift-shop-three.vercel.app/
 
 ## Lessons Learned
 
-While doing this project I learned a lot about using 3d models, great animations and transitions with popular libraries. I encountered problems with the 3d model and responsiveness to get the nice waves on the page to line up well but in the end I managed to do well. I also learned how to easily implement dark mode and internationalization. Overall I think this project is a good showcase of me.
+While doing this project I learned a lot about working with GraphQL and I realized how Codegen is very helpful for TypeScript types. I discovered a lot of modern Next.js 14 features like app router, server components, server actions, optimistic updates and more.
 
 ## Feedback
 
