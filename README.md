@@ -1,6 +1,6 @@
 ![App Screenshot](https://i.imgur.com/2dG9L5J.png)
 
-# 🚀 SwiftShop 
+# 👕 SwiftShop 
 
 Example clean and beautiful E-commerce shop with various features.
 
