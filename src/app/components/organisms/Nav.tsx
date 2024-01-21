@@ -6,7 +6,6 @@ import { Menu } from "lucide-react";
 import { X } from "lucide-react";
 import { ShoppingCartIcon } from "../atoms/ShoppingCartIcon";
 import clsx from "clsx";
-import Link from "next/link";
 
 const navItems = [
 	{
