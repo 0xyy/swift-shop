@@ -4,7 +4,7 @@ import { executeGraphql } from "@/api/graphqlApi";
 import { CartSetProductQuantityDocument } from "@/gql/graphql";
 
 export const changeItemQuantity = async (itemId: string, quantity: number) => {
-	executeGraphql(CartSetProductQuantityDocument, {
+	await executeGraphql(CartSetProductQuantityDocument, {
 		itemId,
 		quantity,
 	});

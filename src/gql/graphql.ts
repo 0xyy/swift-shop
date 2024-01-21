@@ -10787,7 +10787,7 @@ export type CartSetProductQuantityMutationVariables = Exact<{
 }>;
 
 
-export type CartSetProductQuantityMutation = { updateOrderItem?: { id: string } | null };
+export type CartSetProductQuantityMutation = { updateOrderItem?: { id: string, quantity: number } | null };
 
 export type CartGetByIdQueryVariables = Exact<{
   id: Scalars['ID']['input'];
@@ -10918,6 +10918,7 @@ export const CartSetProductQuantityDocument = new TypedDocumentString(`
     mutation CartSetProductQuantity($itemId: ID!, $quantity: Int!) {
   updateOrderItem(where: {id: $itemId}, data: {quantity: $quantity}) {
     id
+    quantity
   }
 }
     `) as unknown as TypedDocumentString<CartSetProductQuantityMutation, CartSetProductQuantityMutationVariables>;

@@ -9,6 +9,7 @@ export const CartItemList = ({ cart }: { cart: CartFragment }) => {
 					key={item.id}
 					quantity={item.quantity}
 					product={item.product as ProductListItemFragment}
+					orderItemId={item.id}
 				/>
 			))}
 		</ul>

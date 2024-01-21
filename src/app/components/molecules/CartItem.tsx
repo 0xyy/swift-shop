@@ -7,12 +7,12 @@ import { IncrementProductQuantity } from "@/app/cart/IncrementProductQuantity";
 export const CartItem = ({
 	product,
 	quantity,
+	orderItemId,
 }: {
 	product: ProductListItemFragment;
 	quantity: number;
+	orderItemId: string;
 }) => {
-	console.log({ product, quantity });
-
 	return (
 		<li>
 			<div className="my-3 flex flex-row items-center justify-between py-1">
@@ -30,7 +30,7 @@ export const CartItem = ({
 				</Link>
 				<div className="flex items-center space-x-4 sm:space-x-8 md:space-x-12">
 					<form className="space-x-2">
-						<IncrementProductQuantity quantity={quantity} itemId={product.id} />
+						<IncrementProductQuantity quantity={quantity} itemId={orderItemId} />
 					</form>
 					<p>{formatMoney((product.price * quantity) / 100)}</p>
 				</div>
