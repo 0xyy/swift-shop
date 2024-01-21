@@ -32,7 +32,6 @@ export async function addToCart(orderId: string, productId: string) {
 
 export async function getCartFromCookies() {
 	const cartId = cookies().get("cartId")?.value;
-
 	if (cartId) {
 		const cart = await executeGraphql(CartGetByIdDocument, { id: cartId });
 		if (cart.order) {
