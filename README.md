@@ -18,7 +18,7 @@ https://swift-shop-three.vercel.app/
 
 ## Lessons Learned
 
-While doing this project I learned a lot about working with GraphQL and I realized how Codegen is very helpful for TypeScript types. I discovered a lot of modern Next.js 14 features like app router, server components, server actions, optimistic updates and more.
+While doing this project I learned a lot about working with GraphQL and I realized how Codegen is very helpful for TypeScript types. I discovered a lot of modern Next.js 14 features like app router, server components, server actions, optimistic updates and more. I discovered atomic design file structure.
 
 ## Feedback
 
