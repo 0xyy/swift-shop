@@ -18,9 +18,11 @@ export default async function CartPage() {
 				) : (
 					<p className="font-medium text-gray-700">Your cart is currently empty.</p>
 				)}
-				<aside className="h-[300px] w-full bg-blue-200 xl:w-2/5">
-					<button>ORDER</button>
-				</aside>
+				{cart.orderItems.length > 0 && (
+					<aside className="h-[300px] w-full bg-blue-200 xl:w-2/5">
+						<button>ORDER</button>
+					</aside>
+				)}
 			</section>
 		</section>
 	);

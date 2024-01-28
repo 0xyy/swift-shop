@@ -34,12 +34,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 				className={`${poppins.variable} ${satisfy.variable} mx-auto max-w-lg sm:max-w-[90%] xl:max-w-[80%] 2xl:max-w-[1280px]`}
 			>
 				<Nav />
-				<main
-					className="mx-3 my-8 md:mx-0 lg:my-14"
-					// className="mx-auto p-5 sm:max-w-xl md:max-w-6xl lg:max-w-full lg:p-20"
-				>
-					{children}
-				</main>
+				<main className="mx-3 my-8 md:mx-0 lg:my-14">{children}</main>
 				<Footer />
 			</body>
 		</html>
