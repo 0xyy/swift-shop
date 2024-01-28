@@ -12,7 +12,7 @@ import { notFound } from "next/navigation";
 const MAX_PRODUCTS_PER_PAGE = 4;
 
 export const getProductsTotalPages = async () => {
-	const graphqlResponse = await executeGraphql(ProductsGetQuantityDocument, {});
+	const graphqlResponse = await executeGraphql({ query: ProductsGetQuantityDocument });
 	const totalPages = Math.ceil(
 		Number(graphqlResponse.productsConnection.aggregate.count) / MAX_PRODUCTS_PER_PAGE,
 	);
@@ -20,10 +20,13 @@ export const getProductsTotalPages = async () => {
 };
 
 export const getProductsTotalPagesByCategorySlug = async (categorySlug: string) => {
-	const graphqlResponse = await executeGraphql(ProductsGetQuantityByCategorySlugDocument, {
-		where: {
-			categories_some: {
-				slug: categorySlug,
+	const graphqlResponse = await executeGraphql({
+		query: ProductsGetQuantityByCategorySlugDocument,
+		variables: {
+			where: {
+				categories_some: {
+					slug: categorySlug,
+				},
 			},
 		},
 	});
@@ -35,25 +38,34 @@ export const getProductsTotalPagesByCategorySlug = async (categorySlug: string) 
 
 export const getProductsList = async (page: number) => {
 	const offset = (page - 1) * MAX_PRODUCTS_PER_PAGE;
-	const graphqlResponse = await executeGraphql(ProductsGetListDocument, {
-		first: MAX_PRODUCTS_PER_PAGE,
-		skip: offset,
+	const graphqlResponse = await executeGraphql({
+		query: ProductsGetListDocument,
+		variables: {
+			first: MAX_PRODUCTS_PER_PAGE,
+			skip: offset,
+		},
 	});
 	return graphqlResponse.products;
 };
 
 export const getProductByCategorySlug = async (categorySlug: string, page: number) => {
 	const offset = (page - 1) * MAX_PRODUCTS_PER_PAGE;
-	const graphqlResponse = await executeGraphql(ProductsGetByCategorySlugDocument, {
-		slug: categorySlug,
-		first: MAX_PRODUCTS_PER_PAGE,
-		skip: offset,
+	const graphqlResponse = await executeGraphql({
+		query: ProductsGetByCategorySlugDocument,
+		variables: {
+			slug: categorySlug,
+			first: MAX_PRODUCTS_PER_PAGE,
+			skip: offset,
+		},
 	});
 	return graphqlResponse.categories[0]?.products;
 };
 
 export const getProductById = async (id: ProductListItemFragment["id"]) => {
-	const graphqlResponse = await executeGraphql(ProductGetByIdDocument, { id });
+	const graphqlResponse = await executeGraphql({
+		query: ProductGetByIdDocument,
+		variables: { id },
+	});
 	if (!graphqlResponse.product) return notFound();
 	return graphqlResponse.product;
 };

@@ -8,8 +8,8 @@ import { ProductItemCategory } from "@/app/components/atoms/ProductItemCategory"
 import { MoveLink } from "@/app/components/atoms/MoveLink";
 import { Loader } from "@/app/components/atoms/Loader";
 import { addToCart, getOrCreateCart } from "@/api/cart";
-import { cookies } from "next/headers";
 import { AddToCartButton } from "./AddToCartButton";
+import { changeItemQuantity } from "@/app/cart/actions";
 
 export const generateMetadata = async ({
 	params,
@@ -29,11 +29,13 @@ export default async function SingleProductPage({ params }: { params: { productI
 	async function addToCartAction() {
 		"use server";
 		const cart = await getOrCreateCart();
-		cookies().set("cartId", cart.id, {
-			httpOnly: true,
-			sameSite: "lax",
-		});
-		await addToCart(cart.id, params.productId);
+		const existingProductInCart = cart.orderItems.find(
+			(orderItem) => orderItem.product?.id === params.productId,
+		);
+
+		if (existingProductInCart)
+			changeItemQuantity(existingProductInCart.id, existingProductInCart.quantity + 1);
+		else await addToCart(cart.id, params.productId);
 	}
 
 	return (

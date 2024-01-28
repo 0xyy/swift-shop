@@ -1,5 +1,5 @@
 "use client";
-// import { useCallback, useEffect, useOptimistic, useState } from "react";
+import { useOptimistic, useState } from "react";
 import { changeItemQuantity } from "./actions";
 
 export const IncrementProductQuantity = ({
@@ -9,71 +9,47 @@ export const IncrementProductQuantity = ({
 	quantity: number;
 	itemId: string;
 }) => {
-	// const [optimisticQuantity, setOptimisticQuantity] = useOptimistic(
-	// 	quantity,
-	// 	(_state, newQuantity: number) => newQuantity,
-	// );
-	// const [optimisticQuantity, setOptimisticQuantity] = useState(quantity);
-	// const [reallyQuantity, setReallyQuantity] = useState(quantity);
-
-	// const setOrderItemQuantity = useCallback(async () => {
-	// 	switch (true) {
-	// 		case reallyQuantity === 0:
-	// 			console.log("optimistic quantity is 0 and product was deleted");
-	// 			// await deleteOrderItem(itemId);
-	// 			break;
-	// 		case reallyQuantity > 0:
-	// 			console.log("really quantity is greater than 0 and product was changed");
-	// 			await changeItemQuantity(itemId, reallyQuantity);
-	// 			break;
-	// 		default:
-	// 			console.log("really quantity is not set and product was not changed");
-	// 			break;
-	// 	}
-	// }, [itemId, reallyQuantity, changeItemQuantity]);
-
-	// useEffect(() => {
-	// 	const delayTimeout = setTimeout(() => {
-	// 		setReallyQuantity(optimisticQuantity);
-	// 	}, 400);
-	// 	return () => {
-	// 		clearTimeout(delayTimeout);
-	// 	};
-	// }, [optimisticQuantity]);
-
-	// useEffect(() => {
-	// 	if (reallyQuantity !== quantity) {
-	// 		setOrderItemQuantity().then(() => {
-	// 			console.log("done", reallyQuantity);
-	// 		});
-	// 	}
-	// }, [reallyQuantity]);
+	const [optimisticQuantity, setOptimisticQuantity] = useOptimistic(
+		quantity,
+		(_state, newQuantity: number) => newQuantity,
+	);
+	const [isDisabled, setIsDisabled] = useState(false);
 
 	return (
 		<>
-			<span className="text-md font-semibold">{quantity}</span>
+			<button
+				data-testid="decrement"
+				className="h-7 w-7 rounded-lg bg-gray-700 text-white shadow-md transition-colors hover:bg-gray-600 disabled:bg-gray-400"
+				type="submit"
+				disabled={isDisabled}
+				formAction={async () => {
+					setIsDisabled(true);
+					setTimeout(async () => {
+						setIsDisabled(false);
+						setOptimisticQuantity(optimisticQuantity - 1);
+						await changeItemQuantity(itemId, optimisticQuantity - 1);
+					}, 500);
+				}}
+			>
+				-
+			</button>
+			<span className="text-md font-semibold">{optimisticQuantity}</span>
 			<button
 				data-testid="increment"
-				className="h-7 w-7 rounded-lg bg-gray-700 text-white shadow-md transition-colors hover:bg-gray-600"
+				className="h-7 w-7 rounded-lg bg-gray-700 text-white shadow-md transition-colors hover:bg-gray-600 disabled:bg-gray-400"
 				type="submit"
+				disabled={isDisabled}
 				formAction={async () => {
-					// setOptimisticQuantity(optimisticQuantity + 1);
-					await changeItemQuantity(itemId, quantity + 1);
+					setIsDisabled(true);
+					setTimeout(async () => {
+						setIsDisabled(false);
+						setOptimisticQuantity(optimisticQuantity + 1);
+						await changeItemQuantity(itemId, optimisticQuantity + 1);
+					}, 500);
 				}}
 			>
 				+
 			</button>
-
-			{/* <button
-				type="submit"
-				formAction={async () => {
-					setOptimisticQuantity(optimisticQuantity + 1);
-					await changeItemQuantity(itemId, optimisticQuantity + 1);
-				}}
-				className="h-7 w-7 rounded-lg bg-gray-700 text-white shadow-md transition-colors hover:bg-gray-600"
-			>
-				+ */}
-			{/* </button> */}
 		</>
 	);
 };
