@@ -1,7 +1,7 @@
 import { getProductByCategorySlug, getProductsTotalPagesByCategorySlug } from "@/api/products";
-import { ProductItemCategory } from "@/app/components/atoms/ProductItemCategory";
-import { Pagination } from "@/app/components/molecules/Pagination";
-import { ProductItemList } from "@/app/components/organisms/ProductItemList";
+import { ProductItemCategory } from "@/components/atoms/ProductItemCategory";
+import { Pagination } from "@/components/molecules/Pagination";
+import { ProductItemList } from "@/components/organisms/ProductItemList";
 
 export default async function ProductsCategoryPage({
 	params: { category },

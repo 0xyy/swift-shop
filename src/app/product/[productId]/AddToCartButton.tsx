@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/app/components/atoms/Button";
+import { Button } from "@/components/atoms/Button";
 import { ShoppingCart } from "lucide-react";
 import { useFormStatus } from "react-dom";
 

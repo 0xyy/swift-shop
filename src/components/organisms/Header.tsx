@@ -6,7 +6,7 @@ export const Header = () => {
 	return (
 		<header className="flex flex-col gap-y-10 sm:gap-x-4 md:flex-row">
 			<section className="flex flex-col gap-y-8 sm:justify-between md:w-3/5 lg:w-1/2">
-				<h1 className="text-gradient text-center text-6xl font-bold uppercase tracking-wider sm:text-left sm:text-6xl md:text-7xl lg:text-left lg:text-8xl">
+				<h1 className="text-gradient text-center font-primary text-6xl font-bold uppercase tracking-wider sm:text-left sm:text-6xl md:text-7xl lg:text-left lg:text-8xl">
 					Perfect time to shop
 				</h1>
 
@@ -75,7 +75,7 @@ export const Header = () => {
 			<aside className="flex flex-col items-center gap-y-6 md:w-2/5 lg:w-1/2 lg:justify-between">
 				<div className="relative h-[600px] w-full md:h-full ">
 					<NextImage
-						src="/header-couple.jpg"
+						src="/oils-man.jpg"
 						fill
 						className="overflow-hidden rounded-2xl object-cover"
 						alt="couple"

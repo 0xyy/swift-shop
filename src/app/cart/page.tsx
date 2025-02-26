@@ -1,13 +1,19 @@
-import { getCartFromCookies } from "@/api/cart";
-import { redirect } from "next/navigation";
-import { CartItemList } from "../components/organisms/CarttemList";
+import { getCartFromCookies, handlePaymentAction } from "@/api/cart";
+import { CartItemList } from "@/components/organisms/CarttemList";
+import { formatMoney } from "../utils";
 
 export default async function CartPage() {
 	const cart = await getCartFromCookies();
 
 	if (!cart) {
-		redirect("/");
+		return (
+			<p className="mb-[50vh] text-center text-xl font-medium text-gray-700">
+				Your cart is currently empty.
+			</p>
+		);
 	}
+
+	const cartTotal = cart.orderItems.reduce((prev, item) => prev + item.quantity * item.total, 0);
 
 	return (
 		<section className="space-y-12">
@@ -20,7 +26,10 @@ export default async function CartPage() {
 				)}
 				{cart.orderItems.length > 0 && (
 					<aside className="h-[300px] w-full bg-blue-200 xl:w-2/5">
-						<button>ORDER</button>
+						<h2 className="text-2xl font-semibold">Total: {formatMoney(cartTotal / 100)}</h2>
+						<form action={handlePaymentAction}>
+							<button>Pay123</button>
+						</form>
 					</aside>
 				)}
 			</section>

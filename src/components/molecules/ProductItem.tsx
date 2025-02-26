@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { ProductItemDescription } from "../atoms/ProductItemDescription";
-import { ProductItemImage } from "../atoms/ProductItemImage";
 import { ProductListItemFragment } from "@/gql/graphql";
+import { ProductItemImage } from "../atoms/ProductItemImage";
+import { ProductItemDescription } from "../atoms/ProductItemDescription";
 
 export const ProductItem = ({ product }: { product: ProductListItemFragment }) => {
 	return (

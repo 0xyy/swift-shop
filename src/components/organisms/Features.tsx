@@ -1,5 +1,5 @@
-import { Newsletter } from "../molecules/Newsletter";
 import { FeatureItem, type FeatureItemProps } from "../molecules/FeatureItem";
+import { Newsletter } from "../molecules/Newsletter";
 
 const features: FeatureItemProps[] = [
 	{

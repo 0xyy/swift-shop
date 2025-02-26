@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { ProductItemImage } from "../atoms/ProductItemImage";
 import { formatMoney } from "@/app/utils";
 import { ProductListItemFragment } from "@/gql/graphql";
 import { IncrementProductQuantity } from "@/app/cart/IncrementProductQuantity";
 import { DeleteProductButton } from "@/app/cart/DeleteProductButton";
+import { ProductItemImage } from "../atoms/ProductItemImage";
 
 export const CartItem = ({
 	product,

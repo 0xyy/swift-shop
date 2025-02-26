@@ -1,8 +1,8 @@
-import { Features } from "./components/organisms/Features";
-import { Feedback } from "./components/organisms/Feedback";
-import { Header } from "./components/organisms/Header";
-import { Models } from "./components/organisms/Models";
-import { TrendingProducts } from "./components/organisms/TrendingProducts";
+import { Header } from "@/components/organisms/Header";
+import { Feedback } from "@/components/organisms/Feedback";
+import { Features } from "@/components/organisms/Features";
+import { Models } from "@/components/organisms/Models";
+import { TrendingProducts } from "@/components/organisms/TrendingProducts";
 
 export default async function HomePage() {
 	return (

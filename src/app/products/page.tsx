@@ -1,6 +1,6 @@
-import { Pagination } from "../components/molecules/Pagination";
-import { ProductItemList } from "../components/organisms/ProductItemList";
 import { getProductsList, getProductsTotalPages } from "@/api/products";
+import { Pagination } from "@/components/molecules/Pagination";
+import { ProductItemList } from "@/components/organisms/ProductItemList";
 
 export default async function ProductsPage({ searchParams }: { searchParams: { page?: number } }) {
 	const currentPage = Number(searchParams?.page) || 1;

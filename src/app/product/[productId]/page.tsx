@@ -1,12 +1,12 @@
 import { Suspense } from "react";
 import { type Metadata } from "next";
 import { getProductById } from "@/api/products";
-import { ProductItemImage } from "@/app/components/atoms/ProductItemImage";
-import { SuggestedProductsList } from "@/app/components/organisms/SuggestedProducts";
-import { ProductItemDetails } from "@/app/components/atoms/ProductItemDetails";
-import { ProductItemCategory } from "@/app/components/atoms/ProductItemCategory";
-import { MoveLink } from "@/app/components/atoms/MoveLink";
-import { Loader } from "@/app/components/atoms/Loader";
+import { ProductItemImage } from "@/components/atoms/ProductItemImage";
+import { SuggestedProductsList } from "@/components/organisms/SuggestedProducts";
+import { ProductItemDetails } from "@/components/atoms/ProductItemDetails";
+import { ProductItemCategory } from "@/components/atoms/ProductItemCategory";
+import { MoveLink } from "@/components/atoms/MoveLink";
+import { Loader } from "@/components/atoms/Loader";
 import { addToCart, getOrCreateCart } from "@/api/cart";
 import { AddToCartButton } from "./AddToCartButton";
 import { changeItemQuantity } from "@/app/cart/actions";

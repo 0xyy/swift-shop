@@ -2,8 +2,8 @@
 
 import { usePathname, useSearchParams } from "next/navigation";
 import { generatePagination } from "@/app/utils";
-import { PaginationArrow } from "../atoms/PaginationArrow";
 import { PaginationNumber, type PaginationNumberPosition } from "../atoms/PaginationNumber";
+import { PaginationArrow } from "../atoms/PaginationArrow";
 
 export const Pagination = ({ totalPages }: { totalPages: number }) => {
 	const pathname = usePathname();
